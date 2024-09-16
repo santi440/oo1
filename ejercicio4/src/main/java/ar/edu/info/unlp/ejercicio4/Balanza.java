@@ -11,7 +11,7 @@ public class Balanza extends GestorDeProductos{
 	
 	//Reinicia la balanza,dejando todos los valores en 0 
 	public void ponerEnCero() {
-		this.productos = new ArrayList<Producto>();
+		this.productos.clear();
 	}
 	
 	public void agregarProducto(Producto  producto) {
