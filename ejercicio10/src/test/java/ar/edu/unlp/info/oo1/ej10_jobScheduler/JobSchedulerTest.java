@@ -38,13 +38,13 @@ public class JobSchedulerTest {
 
     private JobScheduler newPriorityScheduler() {
         JobScheduler priorityScheduler = new JobSchedulerHighestPriority();
-        priorityScheduler.setStrategy("HighestPriority");
+        
         return priorityScheduler;
     }
 
     private JobScheduler newEffortScheduler() {
         JobScheduler effortScheduler = new JobSchedulerMostEffort();
-        effortScheduler.setStrategy("MostEffort");
+        
         return effortScheduler;
     }
 

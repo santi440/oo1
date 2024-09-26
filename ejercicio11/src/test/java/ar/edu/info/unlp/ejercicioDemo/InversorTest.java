@@ -14,7 +14,7 @@ public class InversorTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		alan = new Inversor("Alan Turing", new ArrayList<Inversion>());
+		alan = new Inversor("Alan Turing");
 		alan.agregarInversion(new PlazoFijo(LocalDate.now(), 1000, 1));
 		alan.agregarInversion(new InversionEnAcciones("Apple", 3 , 100.0));		
 	}

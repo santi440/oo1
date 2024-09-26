@@ -8,8 +8,6 @@ public class CuentaCorriente extends Cuenta{
 		this.descubierto = descubierto;
 	}
 
-
-
 	public double getDescubierto() {
 		return descubierto;
 	}

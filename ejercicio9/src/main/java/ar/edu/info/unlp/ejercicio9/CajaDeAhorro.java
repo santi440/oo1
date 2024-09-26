@@ -16,7 +16,7 @@ public class CajaDeAhorro extends Cuenta{
 		}
 		
 		public boolean extraer(double monto) {
-			return super.extraer(monto - monto*0.02);
+			return super.extraer(monto + monto*0.02);
 		}
 		
 		public boolean transfereirACueta(double monto, Cuenta cuentaDestino) {

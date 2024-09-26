@@ -5,11 +5,10 @@ import java.util.List;
 
 public abstract class JobScheduler {
     protected List<JobDescription> jobs;
-    protected String strategy;
 
     public JobScheduler () {
         this.jobs = new ArrayList<>();
-        this.strategy = "FIFO";
+        
     }
 
     public void schedule(JobDescription job) {
@@ -22,18 +21,12 @@ public abstract class JobScheduler {
         }
     }
 
-    public String getStrategy() {
-        return this.strategy; 
-    }
 
     public List<JobDescription> getJobs(){
         return jobs;
     }
 
-    public void setStrategy(String aStrategy) {
-        this.strategy = aStrategy;
-    }
-
+    
     public abstract JobDescription next() ;
 
 

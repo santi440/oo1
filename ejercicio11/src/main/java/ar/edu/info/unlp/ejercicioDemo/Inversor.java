@@ -7,9 +7,9 @@ public class Inversor {
 	private List<Inversion> inversiones;
 	
 	
-	public Inversor(String nombre, List<Inversion> inversiones) {
+	public Inversor(String nombre) {
 		this.nombre = nombre;
-		this.inversiones = inversiones;
+		this.inversiones = new ArrayList<Inversion>();
 	}
 	
 	public void agregarInversion(Inversion inversion) {

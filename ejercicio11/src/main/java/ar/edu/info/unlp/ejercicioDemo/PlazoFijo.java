@@ -19,7 +19,7 @@ public class PlazoFijo implements Inversion{
 
 	public double valorActual() {
 		LocalDate hoy = LocalDate.now();
-		long dias = ChronoUnit.DAYS.between(this.fechaDeConstitucion, hoy);
+		int dias = hoy.until(fechaDeConstitucion).getDays();
 		return this.montoDepositado + this.montoDepositado * dias * this.porcentajeDeInteresDiario/100;
 	}
 }
