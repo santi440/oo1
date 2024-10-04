@@ -10,7 +10,8 @@ public class Carpeta {
 		this.nombre=nombre;
 		this.emails=new ArrayList<Email>();
 	}
-	
+	// particiones equivalentes, test sobre un elemento de un dominio, todos ellos son testeados.
+	// valores de borde, vamos a probar el punto en que se rompe. 
 	public String getNombre() {
 		return this.nombre;
 	}

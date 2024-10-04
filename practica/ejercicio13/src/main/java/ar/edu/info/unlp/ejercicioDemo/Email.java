@@ -9,7 +9,7 @@ public class Email {
 	public Email (String titulo, String cuerpo, List<Archivo> adjuntos) {
 		this.cuerpo= cuerpo;
 		this.titulo= titulo;
-		this.adjuntos= adjuntos; 
+		this.adjuntos= new ArrayList<Archivo> (adjuntos); 
 	}
 
 	public List<Archivo> getAdjuntos() {
