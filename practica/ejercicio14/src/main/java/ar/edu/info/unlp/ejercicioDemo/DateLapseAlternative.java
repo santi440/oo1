@@ -29,4 +29,10 @@ public class DateLapseAlternative implements DateLapseInterface{
 		return (other.isAfter(from) || other.isEqual(from)) &&
 				(other.isBefore(to) || other.isEqual(to));
 	}
+	/**
+	Retorna true si el período de tiempo del receptor se superpone con el recibido por parámetro
+	**/
+	public boolean overlaps (DateLapseInterface anotherDateLapse) {
+		return (this.includesDate(anotherDateLapse.getFrom()) || this.includesDate(anotherDateLapse.getTo()));
+	}
 }
