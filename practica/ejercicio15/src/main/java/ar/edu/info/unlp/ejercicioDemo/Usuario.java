@@ -2,11 +2,12 @@ package ar.edu.info.unlp.ejercicioDemo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
 	private  String nombre;
 	private String direccion;
-	private ArrayList<Consumo> consumo;
+	private List<Consumo> consumo;
 	
 	public Usuario (String nombre, String domicilio) {
 		this.nombre= nombre;

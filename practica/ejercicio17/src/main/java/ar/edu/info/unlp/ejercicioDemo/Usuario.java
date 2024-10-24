@@ -39,8 +39,7 @@ public class Usuario {
 		public boolean cancelarReserva(Propiedad origen, DateLapseInterface reserva) {
 			Propiedad destino= this.propiedades.stream().filter(p -> p.equals(origen)).findFirst().orElse(null);
 			if (destino != null) {
-				destino.removeReserva(reserva);
-				return true;
+				return destino.removeReserva(reserva);
 			}
 			return false;
 		}

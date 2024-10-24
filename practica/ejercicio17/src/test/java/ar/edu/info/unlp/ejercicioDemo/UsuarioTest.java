@@ -36,8 +36,8 @@ class UsuarioTest {
 	
 	@Test
 	void testCancelarReservar() {
-		assertEquals(true,pepe.cancelarReserva(p1, new DateLapse(LocalDate.of(2024,11,1), LocalDate.of(2024, 11, 5))));
-		assertEquals(false,pepe.cancelarReserva(p1, new DateLapse(LocalDate.of(2024,11,1), LocalDate.of(2024, 11, 5))));
+		assertEquals(true,pepe.cancelarReserva(p1, new DateLapse(LocalDate.of(2024,10,27), LocalDate.of(2024, 10, 30))));
+		assertEquals(false,pepe.cancelarReserva(p1, new DateLapse(LocalDate.of(2024,10,27), LocalDate.of(2024, 10, 30))));
 		assertEquals(false,pepe.cancelarReserva(p2, new DateLapse(LocalDate.of(2024,11,1), LocalDate.of(2024, 11, 5))));	
 		}
 }
