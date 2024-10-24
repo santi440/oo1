@@ -40,7 +40,7 @@ public class Propiedad {
 	}
 	
 	public boolean removeReserva(DateLapseInterface reserva) {
-		if (reserva.includesDate(LocalDate.now())) {
+		if (!reserva.includesDate(LocalDate.now())) {
 			return this.reservas.remove(reserva);
 		}		
 		return false;
