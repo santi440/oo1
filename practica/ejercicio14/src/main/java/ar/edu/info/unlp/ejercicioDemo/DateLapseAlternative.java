@@ -35,4 +35,8 @@ public class DateLapseAlternative implements DateLapseInterface{
 	public boolean overlaps (DateLapseInterface anotherDateLapse) {
 		return (this.includesDate(anotherDateLapse.getFrom()) || this.includesDate(anotherDateLapse.getTo()));
 	}
+	
+	public boolean equals(DateLapseInterface o) {
+		return this.from.equals(o.getFrom()) && this.getTo().equals(o.getTo());
+	}
 }

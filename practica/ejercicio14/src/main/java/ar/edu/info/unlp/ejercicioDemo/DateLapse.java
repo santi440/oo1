@@ -37,4 +37,7 @@ public class DateLapse implements DateLapseInterface{
 		return (this.includesDate(anotherDateLapse.getFrom()) || this.includesDate(anotherDateLapse.getTo()));
 	}
 
+	public boolean equals(DateLapseInterface o) {
+		return (this.from.isEqual(o.getFrom()) && this.to.isEqual(o.getTo()));
+	}
 }

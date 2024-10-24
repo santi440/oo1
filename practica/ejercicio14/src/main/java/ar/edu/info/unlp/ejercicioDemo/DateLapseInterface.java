@@ -8,4 +8,5 @@ public interface DateLapseInterface {
 	public int sizeInDays();
 	public boolean includesDate(LocalDate other);
 	public boolean overlaps(DateLapseInterface anotherDateLapse);
+	public boolean equals(DateLapseInterface o);
 }
