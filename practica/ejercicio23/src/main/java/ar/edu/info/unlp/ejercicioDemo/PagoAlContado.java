@@ -4,7 +4,7 @@ public class PagoAlContado implements Pago {
 
 	@Override
 	public double costoAgregado() {
-		return 0;
+		return 1;
 	}
 
 }

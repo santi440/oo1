@@ -20,8 +20,12 @@ public class Producto {
 		this.stock = p.getStock();
 	}
 
-	public void dismin (int cant) {
-		this.stock -= cant;
+	public boolean dismin (int cant) {
+		if (cant <= this.stock) {
+			this.stock -= cant;
+			return true;
+		}
+		return false;
 	}
 	
 	public String getNombre() {

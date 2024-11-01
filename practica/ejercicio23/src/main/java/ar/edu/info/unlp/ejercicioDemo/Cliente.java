@@ -3,28 +3,21 @@ package ar.edu.info.unlp.ejercicioDemo;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Cliente {
-	private String nombre;
-	private String direccion;
+public class Cliente extends Persona{
 	private List<Pedido> solicitado;
 	
 	public Cliente (String nombre, String direccion) {
-		this.nombre=nombre;
-		this.direccion=direccion;
+		super(nombre,direccion);
 		this.solicitado= new ArrayList<Pedido>();
 	}
 	
-	public String getNombre() {
-		return nombre;
-	}
-
-	public String getDireccion() {
-		return direccion;
+	public int size() { 
+		//solo lo uso para testear
+		return solicitado.size();
 	}
 
 	public void crearPepido (Pago unPago,Envio unEnvio,Producto unProducto, int cant) {
-		if (unProducto.getStock()>= cant) {
-			unProducto.dismin(cant);
+		if (unProducto.dismin(cant)) {
 			this.solicitado.add(new Pedido(unProducto,cant,unEnvio,unPago));
 		}
 	}
@@ -34,8 +27,9 @@ public class Cliente {
 	}
 	
 	public double costoPedido(Pedido p) {
-		if (solicitado.contains(p)) {
-			return p.getCostoTotal(this.direccion);
+		Pedido aux = this.solicitado.stream().filter(a -> a.equals(p)).findFirst().orElse(null);
+		if (aux != null) {
+			return aux.getCostoTotal(this.getDireccion());
 		}
 		return 0;
 	}

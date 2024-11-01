@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import ar.edu.info.unlp.ejercicio21.BagImpl;
+
 public class Carpeta {
 	private String nombre;
 	private List<Email> emails;
@@ -40,7 +42,9 @@ public class Carpeta {
 	public int getCantMail() {
 		return emails.size();
 	}
-	/*
+	
+	//Los 4 estan bien,el 3ero abria que cambiar el test.
+	
 	public Map<String , Long> getCategorias() {
 		// Inicializa un mapa con todas las categorías y sus conteos iniciales a 0
         Map<String, Long> categorias = new HashMap<>();
@@ -56,8 +60,8 @@ public class Carpeta {
         categorias.putAll(conteos);
 
         return categorias;
-	} */
-	
+	} 
+	/*
 	public Map<String , Long> getCategorias() {
 		// Inicializa un mapa con todas las categorías y sus conteos iniciales a 0
         Map<String, Long> categorias = new HashMap<>();
@@ -72,9 +76,21 @@ public class Carpeta {
         categorias.put("Grande", g);
 
         return categorias;
-	}
-	
-	/*public Map<String , Long> getCategorias() { // no lo carga si no esta en ese elemento
+	}*/
+	/*
+	public Map<String , Long> getCategorias() { // no lo carga si no esta en ese elemento
 		return this.emails.stream().collect(Collectors.groupingBy(e -> e.getCategoria(), Collectors.counting()));
+	}*/
+	
+	/*
+	public Map<String , Long> getCategorias(){
+		BagImpl<String> bolsa = new BagImpl<String>();
+		this.emails.stream().forEach(e -> bolsa.add(e.getCategoria()));
+		HashMap<String , Long> devolver = new HashMap<String , Long>();
+		
+		devolver.put("Pequeño",(long) bolsa.occurrencesOf("Pequeño"));
+		devolver.put("Mediano",(long) bolsa.occurrencesOf("Mediano"));
+		devolver.put("Grande", (long)bolsa.occurrencesOf("Grande"));
+		return devolver;
 	}*/
 }

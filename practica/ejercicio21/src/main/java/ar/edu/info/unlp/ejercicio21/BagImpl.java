@@ -1,30 +1,35 @@
-package ar.edu.info.unlp.ejercicioDemo;
+package ar.edu.info.unlp.ejercicio21;
 
 import java.util.*;
 
-public class BagImpl<T> extends AbstractCollection<T> implements Bag<T> {
+public class BagImpl<String> extends AbstractCollection<String> implements Bag<String> {
 
-    Map<T, Integer> elements;
+    Map<String, Integer> elements;
 
     public BagImpl() {
         // TODO Completar con la instanciación adecuada
-        this.elements = new HashMap<T, Integer>(); 
+        this.elements = new HashMap<String, Integer>(); 
     }
 
     @Override
-    public boolean add(T element) {
+    public boolean add(String element) {
         // TODO Completar con la implementación correspondiente
-        return elements.put(element, 1) == 1;
+        if (elements.put(element, 1) == null)
+        	return true;
+        else
+        	return elements.put(element, elements.get(element)+ 1) >=1;
     }
 
     @Override
-    public int occurrencesOf(T element) {
+    public int occurrencesOf(String element) {
         // TODO Completar con la implementación correspondiente
-        return elements.get(element);
+        Integer aux = elements.get(element);
+        return (aux == null) ? 0 : aux;
+    	
     }
 
     @Override
-    public void removeOccurrence(T element) {
+    public void removeOccurrence(String element) {
         // TODO Completar con la implementación correspondiente
     	int aux = this.elements.get(element);
     	if (aux == 1) {
@@ -35,7 +40,7 @@ public class BagImpl<T> extends AbstractCollection<T> implements Bag<T> {
     }
 
     @Override
-    public void removeAll(T element) {
+    public void removeAll(String element) {
         // TODO Completar con la implementación correspondiente
     	this.elements.remove(element);
     }
@@ -43,14 +48,14 @@ public class BagImpl<T> extends AbstractCollection<T> implements Bag<T> {
     @Override
     public int size() {
         // TODO Completar con la implementación correspondiente
-       return this.elements.values().stream().mapToInt(Integer::intValue).sum();
+       return this.elements.entrySet().stream().mapToInt(e -> occurrencesOf(e.getKey())).sum();
     }
 
     @Override
-    public Iterator<T> iterator() {
-        return new Iterator<T>() {
-            private Iterator<Map.Entry<T, Integer>> entryIterator = elements.entrySet().iterator();
-            private Map.Entry<T, Integer> currentEntry;
+    public Iterator<String> iterator() {
+        return new Iterator<String>() {
+            private Iterator<Map.Entry<String, Integer>> entryIterator = elements.entrySet().iterator();
+            private Map.Entry<String, Integer> currentEntry;
             private int remainingCount;
 
             @Override
@@ -59,7 +64,7 @@ public class BagImpl<T> extends AbstractCollection<T> implements Bag<T> {
             }
 
             @Override
-            public T next() {
+            public String next() {
                 if (remainingCount == 0) {
                     currentEntry = entryIterator.next();
                     remainingCount = currentEntry.getValue();
