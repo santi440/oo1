@@ -32,7 +32,7 @@ public class Viaje {
 	
 	public boolean addPasajero(Pasajero e) {
 		// Crea un reloj con fecha pasada para probar si hizo un viaje
-		/*LocalDate fechaFutura = LocalDate.now().minusDays(15);
+		LocalDate fechaFutura = LocalDate.now().minusDays(15);
         Clock clockFuturo = Clock.fixed(fechaFutura.atStartOfDay(ZoneOffset.UTC).toInstant(), ZoneId.systemDefault());
 		LocalDate fechaSimulada = LocalDate.now(clockFuturo);
 		if(!(this.integrante.contains(e)) && (this.integrante.size()< auto.getCapacidad()) &&
@@ -40,15 +40,15 @@ public class Viaje {
 				e.getSaldo() > 0) {
 		return this.integrante.add(e);
 	}
-		return false; */
+		return false; 
 		
 		// metodo original
-		  if(!(this.integrante.contains(e)) && (this.integrante.size()< auto.getCapacidad()) &&
+		  /*if(!(this.integrante.contains(e)) && (this.integrante.size()< auto.getCapacidad()) &&
 				LocalDate.now().isBefore(fecha.minusDays(2)) || LocalDate.now().isEqual(fecha.minusDays(2))&&
 				e.getSaldo() > 0) {
 			return this.integrante.add(e);
 		}
-		return false; 
+		return false; */
 	}
 	
 	public void procesarViaje() {
